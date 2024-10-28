@@ -1,0 +1,222 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #e8e3df;
+            padding: 5px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            z-index: 1000;
+        }
+
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            margin-right: 20px;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: block;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #ccc;
+        }
+
+        nav a.active {
+            background-color: #9f3730;
+            color: #fff;
+        }
+
+        #index {
+            background-image: url('background.jpg');
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 0;
+        }
+
+        #index h1 {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.5em;
+            color: #9f3730;
+            margin: 10px 0;
+        }
+
+        #masters {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .masters-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .master-card {
+            flex: 0 1 calc(33.33% - 20px);
+            margin: 10px;
+            background-color: #f9f9f9;
+            padding: 20px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        .master-card img {
+         max-width: 150px;
+         height: auto;
+         border-radius: 10%;
+         margin-bottom: 10px;
+         }
+
+
+        footer {
+            background-color: #9f3730;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 20px;
+        }
+
+        img {
+            max-width: 150px;
+            height: auto;
+            margin: 10px 0;
+        }
+
+        #logo-title-container {
+            display: flex;
+            align-items: center;
+        }
+
+        #logo {
+            margin-right: 10px;
+        }
+        #services-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        #services-dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        #services-dropdown:hover #services-dropdown-content {
+            display: block;
+        }
+
+        #services-dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        #services-dropdown-content a:hover {
+            background-color: #ccc;
+        }
+        nav ul li:not(:hover) a.active {
+    background-color: #9f3730;
+    color: #fff;
+}
+
+nav a.active {
+    background-color: #e8e3df;
+    color: #333;
+}
+{% endblock style %}
+
+{% block content %}
+<!-- body -->
+<section id="masters">
+    <h2 style="text-align: center; color: #9f3730;">Наші майстри</h2>
+    <div class="masters-container">
+        {% if master_id == 1 %}
+            <div class="master-card">
+                <img src="{% static 'images/master1.png' %}" alt="Майстер 1">
+                <h3>Шевченко Анастасія Леонідівна</h3>
+                <p>Кваліфікація: Майстер з макіяжу, естетичних косметичних процедур (Професіонал)</p>
+                <p>Заслуги: Переможець конкурсу "Найкращий косметолог Києва 2023"</p>
+            </div>
+        {% endif %}
+        {% if master_id == 2 %}
+            <div class="master-card">
+                <img src="{% static 'images/master2.png' %}" alt="Майстер 2">
+                <h3>Клюка Аліна Андріївна</h3>
+                <p>Кваліфікація: Майстер манікюру/педікюру (Професіонал)</p>
+                <p>Заслуги: Переможець конкурсу "Іноваційний підхід до роботи з манікюром"</p>
+            </div>
+        {% endif %}
+        {% if master_id == 3 %}
+            <div class="master-card">
+                <img src="{% static 'images/master3.png' %}" alt="Майстер 3">
+                <h3>Петік Христина Максимівна</h3>
+                <p>Кваліфікація: Стиліст жіночих стрижок, колорист (Професіонал)</p>
+                <p>Заслуги: Переможець конкурсу "Найкращий стиліст 2020"</p>
+            </div>
+        {% endif %}
+        {% if master_id == 4 %}
+            <div class="master-card">
+                <img src="{% static 'images/master4.png' %}" alt="Майстер 4">
+                <h3>Ржавський Микита Дмитрович</h3>
+                <p>Кваліфікація: Косметичний догляд (Професіонал)</p>
+                <p>Заслуги: Переможець конкурсу "Найкращий косметолог Вінниці 2022"</p>
+            </div>
+        {% endif %}
+        {% if master_id == 5 %}
+            <div class="master-card">
+                <img src="{% static 'images/master5.png' %}" alt="Майстер 5">
+                <h3>Силенко Владислав Макарович</h3>
+                <p>Кваліфікація: Майстер з макіяжу (Професіонал)</p>
+                <p>Заслуги: Переможець конкурсу "Найкращий весільний макіяж 2023"</p>
+            </div>
+        {% endif %}
+        {% if master_id == 6 %}
+            <div class="master-card">
+                <img src="{% static 'images/master6.png' %}" alt="Майстер 6">
+                <h3>Сидоренко Микита Данилович</h3>
+                <p>Кваліфікація: Стиліст чоловічих стрижок, колорист (Професіонал)</p>
+                <p>Заслуги: Переможець конкурсу "Найкращі 10 стрижок для чоловіків 2020"</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock content %}
+
+{% block script %}
+
+{% endblock script %}
+
+
+
+
+

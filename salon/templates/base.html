@@ -1,0 +1,53 @@
+{% load static %}
+{% csrf_token %}
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Салон краси "Венера"</title>
+
+    <style>{% block style %} {% endblock style %}</style>
+  <title>Cinema World</title>
+</head>
+<body>
+{% block navbar %}
+<header>
+    <div id="logo-title-container">
+        <img id="logo" src="{% static 'images/logo.png' %}" alt="Логотип Салону краси Венера">
+        <h1 style="font-size: 1.5em; color: #9f3730;">Салон краси - Венера</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="{% url 'home' %}">Головна</a></li>
+            <li id="services-dropdown">
+                <a href="#services">Послуги</a>
+                <div id="services-dropdown-content">
+                    <a href="{% url 'home' %}#services">Стрижка та укладка</a>
+                    <a href="{% url 'home' %}#services">Манікюр та педікюр</a>
+                    <a href="{% url 'home' %}#services">Фарбування волосся</a>
+                    <a href="{% url 'home' %}#services">Косметичні процедури обличчя</a>
+                    <a href="{% url 'home' %}#services">Ламінування брів/вій</a>
+                    <a href="{% url 'home' %}#services">Макіяж</a>
+                </div>
+            </li>
+            <li><a href="{% url 'masters' %}">Майстри</a></li>
+            <li><a href="{% url 'prices' %}">Тарифи</a></li>
+            <li><a href="{% url 'contacts' %}">Контакти</a></li>
+        </ul>
+    </nav>
+</header>
+{% endblock navbar %}
+
+{% block content %}{% endblock content %}
+
+
+<script>{% block script %} {% endblock script %}</script>
+
+<footer>
+    <p>&copy; 2024 Салон краси "Венера". Усі права захищені.</p>
+</footer>
+</body>
+
+</html>
